@@ -2,7 +2,7 @@ machine:
   environment:
     PATH: $HOME/.cabal/bin:$HOME/installs:$PATH
   pre:
-    - sh ./install_deps.sh
+    - sh ./librato/install_deps.sh
 dependencies:
   cache_directories:
     - "~/installs"
