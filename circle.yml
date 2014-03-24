@@ -1,0 +1,18 @@
+machine:
+  environment:
+    PATH: $HOME/.cabal/bin:$HOME/installs:$PATH
+  pre:
+    sh ./install_deps.sh
+dependencies:
+  cache_directories:
+    - "~/installs"
+test:
+  override:
+    - which ghc
+    - ghc --version
+    - cabal install --only-dependencies -j
+    - cabal configure
+    - cabal update
+    - cabal build -j
+    - cabal test
+
