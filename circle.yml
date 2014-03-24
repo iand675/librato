@@ -1,15 +1,21 @@
 machine:
   environment:
     PATH: $HOME/.cabal/bin:$HOME/installs:$PATH
+  cache_directories:
+    - "~/installs"
+  pre:
+    - cabal update
 dependencies:
   override:
     - sh ~/librato/install_deps.sh
   cache_directories:
     - "~/installs"
+    - "dist"
 test:
   override:
     - echo $PATH
     - pwd
+    - which ghc
     - cd ~/librato
     - cabal install --only-dependencies
     - cabal configure
