@@ -11,8 +11,10 @@ dependencies:
 test:
   cache_directories:
     - "dist"
-  override:
+    - "~/.cabal"
+  pre:
     - cabal install --only-dependencies
+  override:
     - cabal configure
     - cabal build
     - cabal test
