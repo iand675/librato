@@ -8,11 +8,5 @@ dependencies:
     - "~/installs"
 test:
   override:
-    - which ghc
-    - ghc --version
-    - cabal install --only-dependencies -j
-    - cabal configure
-    - cabal update
-    - cabal build -j
-    - cabal test
+    - echo $PATH
 
