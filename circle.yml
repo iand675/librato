@@ -1,9 +1,9 @@
 machine:
   environment:
     PATH: $HOME/.cabal/bin:$HOME/installs:$PATH
-  pre:
-    - sh ./librato/install_deps.sh
 dependencies:
+  override:
+    - sh ./librato/install_deps.sh
   cache_directories:
     - "~/installs"
 test:
