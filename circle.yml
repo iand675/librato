@@ -3,7 +3,7 @@ machine:
     PATH: $HOME/.cabal/bin:$HOME/installs:$PATH
 dependencies:
   override:
-    - sh ./librato/install_deps.sh
+    - sh ~/librato/install_deps.sh
   cache_directories:
     - "~/installs"
 test:
