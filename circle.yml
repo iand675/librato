@@ -9,4 +9,9 @@ dependencies:
 test:
   override:
     - echo $PATH
+    - pwd
+    - cd ~/librato
+    - cabal install --only-dependencies
+    - cabal configure
+    - cabal build
 
