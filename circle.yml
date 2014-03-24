@@ -1,6 +1,6 @@
 machine:
   environment:
-    PATH: $HOME/.cabal/bin:$HOME/installs:$PATH
+    PATH: $HOME/.cabal/bin:$HOME/installs/bin:$PATH
   cache_directories:
     - "~/installs"
   pre:
