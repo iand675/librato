@@ -24,7 +24,7 @@ library
   -- other-extensions:    
   build-depends:       base,
                        http-conduit,
-                       bytestring,
+                       bytestring == 0.10.4.*,
                        text,
                        aeson,
                        vector,
