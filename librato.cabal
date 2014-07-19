@@ -17,14 +17,27 @@ extra-source-files:  README.md
 cabal-version:       >=1.10
 
 library
-  exposed-modules:     Librato.Internal,
-                       Librato.Types,
+  exposed-modules:     Librato.Types,
+                       Librato.Internal,
+                       Librato,
+                       -- Librato.Alerts,
+                       -- Librato.Annotations,
+                       -- Librato.ApiTokens,
+                       -- Librato.ChartTokens,
+                       -- Librato.Dashboards,
+                       -- Librato.Instruments,
+                       -- Librato.Jobs,
                        Librato.Metrics
+                       -- Librato.Services,
+                       -- Librato.Sources,
+                       -- Librato.Tags,
+                       -- Librato.Users
   -- other-modules:       
   -- other-extensions:    
-  build-depends:       base,
+  build-depends:       base < 5,
+                       bytestring,
+                       http-client,
                        http-conduit,
-                       bytestring == 0.10.4.*,
                        text,
                        aeson,
                        vector,
@@ -33,6 +46,7 @@ library
                        mtl,
                        http-types,
                        attoparsec,
+                       uri-templater == 0.1.*,
                        either
   hs-source-dirs:      src
   default-language:    Haskell2010

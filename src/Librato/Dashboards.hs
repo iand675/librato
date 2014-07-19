@@ -1,7 +1,21 @@
+{-# LANGUAGE QuasiQuotes #-}
+{-# LANGUAGE TemplateHaskell #-}
 module Librato.Dashboards where
+import Librato.Internal
+import Librato.Types
+import Network.URI.Template
 
-listDashboards = get "dashboards"
+listDashboards :: Maybe Text -> Librato (Page Dashboard)
+listDashboards name = get [uri| dashboards{?name} |]
+
+createDashboard :: Dashboard -> Librato Dashboard
 createDashboard = post "dashboards"
-getDashboard = get "dashboards/{id}"
-updateDashboard = put "dashboards/{id}"
-deleteDashboard = delete "dashboards/{id}"
+
+getDashboard :: Dashboard -> Librato (Maybe Dashboard)
+getDashboard = get [uri| dashboards/{dashboardId} |]
+
+updateDashboard :: Dashboard -> Librato ()
+updateDashboard = put [uri| dashboards/{dashboardId} |]
+
+deleteDashboard :: Dashboard -> Librato ()
+deleteDashboard = delete [uri| dashboards/{dashboardId} |]

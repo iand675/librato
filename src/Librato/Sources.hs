@@ -1,4 +1,9 @@
+{-# LANGUAGE QuasiQuotes #-}
+{-# LANGUAGE TemplateHaskell #-}
 module Librato.Sources where
+import Librato.Internal
+import Librato.Types
+import Network.URI.Template
 
 data Source = Source
   { sourceName :: Text

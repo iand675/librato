@@ -1,5 +1,9 @@
+{-# LANGUAGE QuasiQuotes #-}
+{-# LANGUAGE TemplateHaskell #-}
 module Librato.Alerts where
-import Data.Monoid
+import Librato.Internal
+import Librato.Types
+import Network.URI.Template
 
 alerts = "alerts/"
 alert alertId = alerts <> segment alertId

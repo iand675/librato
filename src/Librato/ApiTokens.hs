@@ -1,4 +1,9 @@
+{-# LANGUAGE QuasiQuotes #-}
+{-# LANGUAGE TemplateHaskell #-}
 module Librato.ApiTokens where
+import Librato.Internal
+import Librato.Types
+import Network.URI.Template
 
 listApiTokens = get "api_tokens"
 createApiToken = post "api_tokens"

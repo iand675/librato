@@ -1,7 +1,9 @@
 module Librato (
+  withLibrato,
   module Librato.Metrics,
   module Librato.Types
 ) where
+import Librato.Internal
 import Librato.Types
 import Librato.Metrics
 

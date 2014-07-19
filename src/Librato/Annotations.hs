@@ -1,14 +1,22 @@
+{-# LANGUAGE QuasiQuotes #-}
+{-# LANGUAGE TemplateHaskell #-}
 module Librato.Annotations where
+import Librato.Internal
+import Librato.Types
+import Network.URI.Template
 
-annotations = "annotations/"
-annotation name = annotations <> segment name
-annotationEvent name eventId = annotation name <> "/" <> segment eventId
-annotationEventLinks name eventId = annotationEvent name eventId <> "/links/"
-annotationEventLink name eventId link = annotationEventLinks name eventId <> segment link 
+listAnnotations :: Librato (Page Annotation)
+listAnnotations = get "annotations"
 
-listAnnotations = get annotations
-createAnnotationEvent = post (annotation name)
+createAnnotationEvent :: Annotation -> Librato Annotation
+createAnnotationEvent = post [uri| /annotations/{name} |]
+
+data AnnotationFilters = AnnotationFilters { }
+
+listAnnotationEvents :: Text -> AnnotationFilters -> Librato (Page Annotation)
 listAnnotationEvents = get (annotation name)
+
+
 updateAnnotationStream = put (annotation name)
 deleteAnnotationStream = delete (annotation name)
 getAnnotationEvent = get (annotationEvent name eventId)
