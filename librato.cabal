@@ -2,7 +2,7 @@
 -- documentation, see http://haskell.org/cabal/users-guide/
 
 name:                librato
-version:             0.1.0.0
+version:             0.2.0.1
 synopsis:            Bindings to the Librato API
 -- description:         
 homepage:            https://github.com/SaneTracker/librato
@@ -46,7 +46,7 @@ library
                        mtl,
                        http-types,
                        attoparsec,
-                       uri-templater == 0.1.*,
+                       uri-templater >= 0.2,
                        either
   hs-source-dirs:      src
   default-language:    Haskell2010
